@@ -82,10 +82,15 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {1-9, 0}
-	$HOME/.config/bspwm/dynamic_workspaces.sh --df {1-9, 10}
+	$HOME/.config/bspwm/dynamic_desktops.sh --df {1-9, 10}
 
 super + shift + {1-9, 0}
-	$HOME/.config/bspwm/dynamic_workspaces.sh --ns {1-9, 10}
+	$HOME/.config/bspwm/dynamic_desktops.sh --ns {1-9, 10}
+
+# Focus or send to the next empty desktop
+super + {_, shift +}n
+	$HOME/.config/bspwm/dynamic_desktops.sh {--df,--ns} $($HOME/.config/bspwm/new_desktop.py)
+	
 
 #
 # preselect
