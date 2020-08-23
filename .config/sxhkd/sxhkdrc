@@ -67,7 +67,7 @@ super + {_,shift + }c
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+super + ctrl + {h,l}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -91,7 +91,6 @@ super + shift + {1-9, 0}
 super + {_, shift +}n
 	$HOME/.config/bspwm/dynamic_desktops.sh {--df,--ns} $($HOME/.config/bspwm/new_desktop.py)
 	
-
 #
 # preselect
 #
@@ -117,8 +116,8 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+# super + alt + {h,j,k,l}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
@@ -129,8 +128,5 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Move a workspace to another monitor
-super + bracket{left,right}
-  desk=`bspc query -D -d focused`; \
-  bspc desktop -m {prev,next}; \
-  bspc monitor -f {prev,next}; \
-  bspc desktop -f $desk
+super + alt + {h,l}
+	$HOME/.config/bspwm/move_desktop.sh {next,prev}

@@ -148,6 +148,10 @@ case "$option" in
 	--df|--focus-desktop)
 		_desk_or_node desktop -f "${target_desktop}"
 		;;
+	--c|--cleanup)
+		# Just a dummy to run the code at the end
+		# Run with --c 1 or another arbitraty number 
+		;;
 	*)
 		echo "< $option > is not a valid option."
 		exit 1
