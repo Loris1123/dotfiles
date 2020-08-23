@@ -1,6 +1,9 @@
 #! /bin/sh
 
-nitrogen --restore
+# Autostart
+xset s 300 5
+XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock & 
+nitrogen --restore  
 sxhkd &
 ~/.config/polybar/launch.sh & 
 
