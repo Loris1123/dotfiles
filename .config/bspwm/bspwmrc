@@ -1,0 +1,28 @@
+#! /bin/sh
+
+nitrogen --restore
+sxhkd &
+~/.config/polybar/launch.sh & 
+
+i=1
+for monitor in $(bspc query -M); do
+bspc monitor $monitor -d $i
+    let i++
+done
+
+#bspc monitor DVI-I-1 -d 1 2 3 4 5
+#bspc monitor DVI-D-1 -d 6 7 8 9 0
+
+bspc config border_width         1
+bspc config window_gap          0
+bspc config top_padding 0
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+
+bspc config automatic_scheme spiral
+bspc config initial_polarity first_child
