@@ -1,7 +1,8 @@
 # List of used packages
-bspwm
+qtile
+xdotool
 xsecurelock
 xss-lock
-polybar
 rofi
 nitrogen
+compton
