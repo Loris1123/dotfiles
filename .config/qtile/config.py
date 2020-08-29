@@ -30,7 +30,7 @@ import os
 import subprocess
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.config import Click, Drag, Group, Key, Screen, Match
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.log_utils import logger
@@ -38,7 +38,6 @@ from libqtile import hook
 
 mod = "mod4"
 terminal = guess_terminal()
-groups = []
 screens = []
 
 ################################################################################
@@ -108,10 +107,6 @@ def focus_screen(direction):
                 str(qtile.current_screen.y + qtile.current_screen.height / 2),
                 ])
 
-        #logger.warning(qtile.current_screen.x)
-        #logger.warning(qtile.current_screen.y)
-        #qtile.
-
     return lazy.function(callback)
 
 
@@ -119,17 +114,21 @@ def focus_screen(direction):
 # Setup Keybindings
 ################################################################################
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down(),
-        desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.up(),
-        desc="Move focus up in stack pane"),
+    # Switch between windows 
+    Key([mod], "h", lazy.layout.left(),
+        desc="Focus the left window"),
+    Key([mod], "j", lazy.layout.down(),
+        desc="Focus the window below"),
+    Key([mod], "k", lazy.layout.up(),
+        desc="Focus the upper window"),
+    Key([mod], "l", lazy.layout.right(),
+        desc="Focus the right window"),
 
-    # Switch focus to other monitors
-    Key([mod], "h", focus_screen("prev"),
+    # Switch between screens
+    Key([mod, "shift"], "h", focus_screen("prev"),
         desc="Focus previous screen"),
-    Key([mod], "l", focus_screen("next"),
-        desc="F;;ocus next screen"),
+    Key([mod, "shift"], "l", focus_screen("next"),
+        desc="Focus next screen"),
 
     Key([mod], "n", focus_empty_group(),
         desc="Focus an empty group"),
@@ -172,18 +171,45 @@ keys = [
 ]
 
 ################################################################################
+# Setup Layouts
+################################################################################
+layouts = [
+    layout.MonadTall(new_at_current=True),
+    layout.Stack(num_stacks=2),
+    layout.Max(),
+    # layout.Bsp(),
+    # layout.Columns(),
+    # layout.Matrix(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
+]
+
+################################################################################
 # Setup Groups
 ################################################################################
-groups.append(Group("1"))
-groups.append(Group("2"))
-groups.append(Group("3"))
-groups.append(Group("4"))
-groups.append(Group("5"))
-groups.append(Group("6"))
-groups.append(Group("7"))
-groups.append(Group("8"))
-groups.append(Group("9"))
-groups.append(Group("0"))
+groups = []
+groups.append(Group("1", label="Term"))
+groups.append(Group("2", 
+    label="Web", 
+    matches=[Match(wm_class=["firefox", "google-chrome" ])],
+    layout="max",
+    ))
+groups.append(Group("3", label="Work"))
+groups.append(Group("4", label="Work"))
+groups.append(Group("5", label="Work"))
+groups.append(Group("6", label="Work"))
+groups.append(Group("7", label="Text"))
+groups.append(Group("8", label="Chat"))
+groups.append(Group("9", 
+    label="Mail",
+    matches=[Match(wm_class=["thunderbird"])],
+    layout="max",
+    ))
+groups.append(Group("0", label="Office"))
 
 for group in groups:
     keys.extend([
@@ -218,17 +244,13 @@ for m in range(num_monitors):
                 [
                     widget.CurrentLayout(),
                     widget.GroupBox(hide_unused=True),
+                    widget.Sep(padding=5),
+                    widget.TaskList(),
                     widget.Prompt(),
-                    widget.WindowName(),
-                    widget.Chord(
-                        chords_colors={
-                            'launch': ("#ff0000", "#ffffff"),
-                        },
-                        name_transform=lambda name: name.upper(),
-                    ),
-                    widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                    widget.TextBox(text="Volume:"),
+                    widget.Volume(),
                     widget.Systray(),
-                    widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                    widget.Clock(format='%k:%M - %a %e. %b %Y'),
                     widget.QuickExit(),
                 ],
              24,
@@ -237,23 +259,6 @@ for m in range(num_monitors):
     )
 
 
-################################################################################
-# Setup Layouts
-################################################################################
-layouts = [
-    layout.MonadTall(),
-    layout.Stack(num_stacks=2),
-    layout.Max(),
-    # layout.Bsp(),
-    # layout.Columns(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
 
 widget_defaults = dict(
     font='sans',
