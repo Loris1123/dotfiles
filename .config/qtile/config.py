@@ -159,7 +159,7 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
@@ -192,24 +192,24 @@ layouts = [
 # Setup Groups
 ################################################################################
 groups = []
-groups.append(Group("1", label="Term"))
+groups.append(Group("1", label="1: Term"))
 groups.append(Group("2", 
-    label="Web", 
+    label="2: Web", 
     matches=[Match(wm_class=["firefox", "google-chrome" ])],
     layout="max",
     ))
-groups.append(Group("3", label="Work"))
-groups.append(Group("4", label="Work"))
-groups.append(Group("5", label="Work"))
-groups.append(Group("6", label="Work"))
-groups.append(Group("7", label="Text"))
-groups.append(Group("8", label="Chat"))
+groups.append(Group("3", label="3: Work"))
+groups.append(Group("4", label="4: Work"))
+groups.append(Group("5", label="5: Work"))
+groups.append(Group("6", label="6: Work"))
+groups.append(Group("7", label="7: Text"))
+groups.append(Group("8", label="8: Chat"))
 groups.append(Group("9", 
-    label="Mail",
+    label="9: Mail",
     matches=[Match(wm_class=["thunderbird"])],
     layout="max",
     ))
-groups.append(Group("0", label="Office"))
+groups.append(Group("0", label="10: Office"))
 
 for group in groups:
     keys.extend([

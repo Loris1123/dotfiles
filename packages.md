@@ -1,9 +1,13 @@
 # List of used packages
 
+    python-xlib
+    stow
     qtile
     xdotool
     xsecurelock
     xss-lock
     rofi
-    nitrogen
+    feh
     compton
+    network-manager-applet
+    adobe-source-code-pro-fonts
