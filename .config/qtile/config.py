@@ -167,7 +167,11 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 
     Key([mod], "Escape", lazy.spawn("xset s activate"),
-        desc="Lock screen")
+        desc="Lock screen"),
+
+    # Media Keys
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10"), desc="Increment screen brightness"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10"), desc="Decrement screen brightness"),
 ]
 
 ################################################################################
@@ -195,7 +199,7 @@ groups = []
 groups.append(Group("1", label="1: Term"))
 groups.append(Group("2", 
     label="2: Web", 
-    matches=[Match(wm_class=["firefox", "google-chrome" ])],
+    matches=[Match(wm_class=["firefox", "google-chrome", "chromium" ])],
     layout="max",
     ))
 groups.append(Group("3", label="3: Work"))
@@ -242,13 +246,13 @@ for m in range(num_monitors):
         Screen(
             top=bar.Bar(
                 [
-                    widget.CurrentLayout(),
+                    widget.CurrentLayout(width=60),
                     widget.GroupBox(hide_unused=True),
                     widget.Sep(padding=5),
                     widget.TaskList(),
                     widget.Prompt(),
-                    widget.TextBox(text="Volume:"),
-                    widget.Volume(),
+                    widget.TextBox(text="Backlight:"),
+                    widget.Backlight(backlight_name=os.listdir("/sys/class/backlight")[0]),
                     widget.Systray(),
                     widget.Clock(format='%k:%M - %a %e. %b %Y'),
                     widget.QuickExit(),
@@ -319,15 +323,6 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
 
 

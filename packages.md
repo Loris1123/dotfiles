@@ -10,4 +10,5 @@
     feh
     compton
     network-manager-applet
+    pasystray
     adobe-source-code-pro-fonts
