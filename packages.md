@@ -12,3 +12,5 @@
     network-manager-applet
     pasystray
     adobe-source-code-pro-fonts
+    spacefm
+    fzf

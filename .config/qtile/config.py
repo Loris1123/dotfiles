@@ -154,7 +154,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "d", lazy.spawn("rofi -show combi -theme solarized_alternate"),
+    Key([mod], "d", lazy.spawn("rofi -combi-modi drun,run,window,ssh -show combi -theme solarized_alternate"),
         desc="Start Rofi"), 
 
     # Toggle between different layouts as defined below
@@ -210,7 +210,7 @@ groups.append(Group("7", label="7: Text"))
 groups.append(Group("8", label="8: Chat"))
 groups.append(Group("9", 
     label="9: Mail",
-    matches=[Match(wm_class=["thunderbird"])],
+    matches=[Match(wm_class=["Thunderbird"])],
     layout="max",
     ))
 groups.append(Group("0", label="10: Office"))
