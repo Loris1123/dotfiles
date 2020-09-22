@@ -14,3 +14,5 @@
     adobe-source-code-pro-fonts
     spacefm
     fzf
+    bat
+    the_silver_searcher

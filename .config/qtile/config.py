@@ -236,6 +236,14 @@ for group in groups:
 # Will automatically detect the number of attached monitors and add a screen for each
 ################################################################################
 num_monitors = get_num_monitors()
+
+# Check if backlight is available
+backlight_dir = os.listdir('/sys/class/backlight/')
+if len(backlight_dir) == 0:
+    backlight_widget = widget.TextBox('')
+else:
+    backlight_widget = widget.Backlight(backlight_name=backlight_dir[0], format='Backlight: {percent: 2.0%}')
+
 for m in range(num_monitors):
     # 10 Groups are created initially. However the bar is set only to show occupied groups.
     # Consequently, <num_monitors> groups are shown. 
@@ -251,8 +259,7 @@ for m in range(num_monitors):
                     widget.Sep(padding=5),
                     widget.TaskList(),
                     widget.Prompt(),
-                    widget.TextBox(text="Backlight:"),
-                    widget.Backlight(backlight_name=os.listdir("/sys/class/backlight")[0]),
+                    backlight_widget,
                     widget.Systray(),
                     widget.Clock(format='%k:%M - %a %e. %b %Y'),
                     widget.QuickExit(),
@@ -286,12 +293,12 @@ mouse = [
 ################################################################################
 @hook.subscribe.startup
 def autostart_always():
-    home = os.path.expanduser('~/.config/qtile/autostart_once.sh')
+    home = os.path.expanduser('~/.config/qtile/autostart_always.sh')
     subprocess.call([home])
 
 @hook.subscribe.startup_once
 def autostart_once():
-    home = os.path.expanduser('~/.config/qtile/autostart_always.sh')
+    home = os.path.expanduser('~/.config/qtile/autostart_once.sh')
     subprocess.call([home])
 
 
