@@ -16,3 +16,4 @@
     fzf
     bat
     the_silver_searcher
+    dunst

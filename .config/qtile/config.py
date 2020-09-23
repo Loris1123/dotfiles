@@ -124,6 +124,10 @@ keys = [
     Key([mod], "l", lazy.layout.right(),
         desc="Focus the right window"),
 
+    # Manipulate Window
+    Key([mod], "f", lazy.window.toggle_fullscreen(),
+        desc="Window toggle fullscreen"),
+
     # Switch between screens
     Key([mod, "shift"], "h", focus_screen("prev"),
         desc="Focus previous screen"),
@@ -260,6 +264,7 @@ for m in range(num_monitors):
                     widget.TaskList(),
                     widget.Prompt(),
                     backlight_widget,
+                    widget.Battery(notify_below=10, format='Battery: {char} {percent:2.0%} {hour:d}h:{min:02d}min remaining'),
                     widget.Systray(),
                     widget.Clock(format='%k:%M - %a %e. %b %Y'),
                     widget.QuickExit(),
