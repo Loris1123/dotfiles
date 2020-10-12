@@ -201,8 +201,7 @@ layouts = [
 ################################################################################
 groups = []
 groups.append(Group("1", label="1: Term"))
-groups.append(Group("2", 
-    label="2: Web", 
+groups.append(Group("2", label="2: Web", 
     matches=[Match(wm_class=["firefox", "google-chrome", "chromium" ])],
     layout="max",
     ))
@@ -210,8 +209,14 @@ groups.append(Group("3", label="3: Work"))
 groups.append(Group("4", label="4: Work"))
 groups.append(Group("5", label="5: Work"))
 groups.append(Group("6", label="6: Work"))
-groups.append(Group("7", label="7: Text"))
-groups.append(Group("8", label="8: Chat"))
+groups.append(Group("7", label="7: Text",
+    matches=[Match(wm_class=["emacs"])],
+    layout="stack",
+    ))
+groups.append(Group("8", label="8: Chat",
+    matches=[Match(wm_class=["Pidgin", "zoom"])],
+    layout="stack",
+    ))
 groups.append(Group("9", 
     label="9: Mail",
     matches=[Match(wm_class=["Thunderbird"])],
@@ -314,7 +319,7 @@ cursor_warp = True
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.

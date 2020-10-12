@@ -1,0 +1,22 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=32
+
+[battery]
+command=./battery
+interval=30
+LABEL=BAT
+#LABEL=⚡
+#BAT_NUMBER=0
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
