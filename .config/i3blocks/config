@@ -10,6 +10,13 @@
 separator=true
 separator_block_width=32
 
+[backlight]
+command=./backlight
+label=BL
+interval=20
+STEP_SIZE=10
+#USE_SUDO=0
+
 [battery]
 command=./battery
 interval=30

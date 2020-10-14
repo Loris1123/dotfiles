@@ -1,0 +1,7 @@
+configuration {
+ modi: "combi";
+ theme: "solarized_alternate";
+ font: "SourceCodePro 10";
+ combi-modi: "window,drun,run,ssh";
+ }
+
