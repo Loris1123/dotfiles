@@ -31,8 +31,8 @@ floating_modifier $mod
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 Web
-set $ws2 Work
+set $ws1 Term
+set $ws2 Web
 set $ws3 Work
 set $ws4 Work
 set $ws5 Work
@@ -42,9 +42,9 @@ set $ws8 Chat
 set $ws9 Mail
 set $ws10 Office
 
-assign [class="firefox"] number 1 $ws1
-assign [class="google-chrome"] number 1 $ws1
-assign [class="Chromium"] number 1 $ws1
+assign [class="firefox"] number 2 $ws1
+assign [class="google-chrome"] number 2 $ws1
+assign [class="Chromium"] number 2 $ws1
 assign [class="Emacs"] number 7 $ws7
 assign [class="Pidgin"] number 8 $ws8
 assign [class="zoom"] number 8 $ws8
