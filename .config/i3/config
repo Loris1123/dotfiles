@@ -42,8 +42,8 @@ set $ws8 Chat
 set $ws9 Mail
 set $ws10 Office
 
-assign [class="firefox"] number 2 $ws1
-assign [class="google-chrome"] number 2 $ws1
+assign [class="firefox"] number 2 $ws2
+assign [class="google-chrome"] number 2 $ws2
 assign [class="Chromium"] number 2 $ws1
 assign [class="Emacs"] number 7 $ws7
 assign [class="Pidgin"] number 8 $ws8
