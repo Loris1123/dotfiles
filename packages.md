@@ -1,1 +1,1 @@
-python-xlib stow qtile xdotool xsecurelock xss-lock rofi feh picom network-manager-applet pasystray adobe-source-code-pro-fonts nemo fzf bat the_silver_searcher dunst mpv
+python-xlib stow xdotool xsecurelock xss-lock rofi feh picom network-manager-applet pasystray adobe-source-code-pro-fonts caja fzf bat ripgrep dunst mpv exa fish

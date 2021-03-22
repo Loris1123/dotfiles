@@ -1,3 +1,6 @@
 alias cat="/usr/bin/bat"
 alias vim="/usr/bin/nvim"
 alias ip="ip -c=auto $argv"
+alias ex="exa --icons"
+alias el="ex -l"
+alias et="ex -T -L 2"

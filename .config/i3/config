@@ -148,8 +148,8 @@ bindsym $mod+Tab workspace back_and_forth
 # Switch to next or previous workspace on current output
 bindsym $mod+Ctrl+h workspace prev_on_output
 bindsym $mod+Ctrl+Left workspace prev_on_output
-bindsym $mod+Ctrl+l workspace prev_on_output
-bindsym $mod+Ctrl+Right workspace prev_on_output
+bindsym $mod+Ctrl+l workspace next_on_output
+bindsym $mod+Ctrl+Right workspace next_on_output
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1 $ws1
