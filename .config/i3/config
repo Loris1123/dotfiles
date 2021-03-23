@@ -16,7 +16,6 @@ font pango:SourceCodePro 8
 exec_always --no-startup-id /usr/bin/autorandr -c
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id picom
 exec --no-startup-id dunst
 exec --no-startup-id xset s 300 5
 exec --no-startup-id XSECURELOCK_NO_COMPOSITE=1 XSECURELOCK_LIST_VIDEOS_COMMAND="ls ~/.dotfiles/screensaver.webm" XSECURELOCK_SAVER=saver_mpv XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 /usr/bin/xss-lock -n /usr/lib/xsecurelock/dimmer -l -- /usr/bin/xsecurelock
