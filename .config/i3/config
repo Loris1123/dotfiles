@@ -43,9 +43,11 @@ set $ws10 Office
 
 assign [class="firefox"] number 2 $ws2
 assign [class="google-chrome"] number 2 $ws2
-assign [class="Chromium"] number 2 $ws1
+assign [class="Chromium"] number 2 $ws2
 assign [class="Emacs"] number 7 $ws7
+assign [class="code-oss"] number 7 $ws7
 assign [class="Pidgin"] number 8 $ws8
+assign [class="Gajim"] number 8 $ws8
 assign [class="zoom"] number 8 $ws8
 assign [class="Thunderbird"] number 9 $ws9
 assign [class="org.remmina.Remmina"] number 10 $ws10
