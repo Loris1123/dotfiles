@@ -2,6 +2,8 @@
 Make umlauts with auo keys and map the lvl3 switch to capslock
 
     sudo localectl set-x11-keymap us pc105 de_se_fi lv3:caps_switch
+    # Or with setxkbmap
+    setxkbmap -model pc105 -layout us -variant de_se_fi -option lv3:caps_switch
 
 ## Use section symbol
 Edit file `/usr/share/X11/xkb/symbols/us`. In section de_se_fi, replace the following line:
